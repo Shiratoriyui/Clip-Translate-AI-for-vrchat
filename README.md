@@ -16,7 +16,7 @@ Windows 系统（使用 winsound 播放提示音）
 <br>
 <h2>📁 文件结构    </h2>  
 TEXT    <br>
-VRChatBox Input Chinese to Japanese Translation/    <br>
+Clip-Translate-AI-for-vrchat-main/    <br>
 ├── VRChatBox Input Chinese to Japanese Translation.py        # 主程序文件    <br>
 ├── config.json              # API 配置文件    <br>
 └── README.md               # 项目说明文档    <br>
