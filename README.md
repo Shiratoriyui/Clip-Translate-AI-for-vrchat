@@ -26,8 +26,9 @@ VRChatBox Input Chinese to Japanese Translation/    <br>
 2.复制需要翻译的中文文本到剪切板    <br>
 3.程序自动检测并开始翻译    <br>
 4.听到提示音后，使用 Ctrl+V 粘贴翻译结果    <br>
-5.翻译结果格式    <br>
-#.翻译结果包含三部分：    <br>
+<br>
+<h2>⚙️翻译结果格式   </h2> 
+翻译结果包含三部分：    <br>
     原始中文文本    <br>
     日语翻译结果    <br>
     中文回译结果    <br>
