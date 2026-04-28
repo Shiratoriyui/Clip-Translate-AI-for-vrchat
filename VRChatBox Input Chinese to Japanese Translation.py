@@ -4,7 +4,6 @@ import pyperclip
 import threading
 import time
 import sys
-import os
 from datetime import datetime
 import winsound
 
@@ -14,10 +13,7 @@ class TranslationBot:
         self.config_file = "config.json"
         self.config = self.load_config()
 
-        self.prompt_file = "prompts.json"
-        self.prompts = self.load_prompts()
-
-        self.current_prompt = self.prompts.get("default", "")
+        self.current_prompt = "请将以下中文文本翻译成日语。保持原意，使用自然的日语表达。"
 
         self.translation_thread = None
         self.running = True
@@ -63,29 +59,6 @@ class TranslationBot:
             print(f"[配置错误] {self.config_file} 格式不正确")
             sys.exit(1)
 
-    def load_prompts(self):
-        default_prompts = {
-            "default": "请将以下中文文本翻译成日语。保持原意，使用自然的日语表达。",
-            "formal": "请将以下中文文本翻译成正式的日语。使用敬语和礼貌的表达方式。",
-            "casual": "请将以下中文文本翻译成日常会话的日语。使用口语化表达。",
-            "anime": "请将以下中文文本翻译成动漫风格的日语。可以适当添加语气词和动漫用语。",
-            "literal": "请将以下中文文本翻译成日语，尽可能保持字面直译。"
-        }
-
-        try:
-            if os.path.exists(self.prompt_file):
-                with open(self.prompt_file, 'r', encoding='utf-8') as f:
-                    prompts = json.load(f)
-                    if "default" not in prompts:
-                        prompts["default"] = default_prompts["default"]
-                    return prompts
-        except:
-            pass
-
-        with open(self.prompt_file, 'w', encoding='utf-8') as f:
-            json.dump(default_prompts, f, ensure_ascii=False, indent=2)
-        return default_prompts
-
     def call_ai_api(self, text, prompt_type="translate_to_japanese"):
         try:
             api_key = self.config.get('api_key')
@@ -105,9 +78,9 @@ class TranslationBot:
             }
 
             if prompt_type == "translate_to_japanese":
-                prompt = f"{self.current_prompt}\n\n原文：{text}\n\n请只输出日语翻译结果，不要添加任何解释。"
+                prompt = f"{self.current_prompt}\n\n原文：{text}\n\n以上中文翻译到日语口语，作为朋友对话尽量不添加任何敬语，只输出日语翻译结果，不要添加任何解释。"
             else:
-                prompt = f"请将以下日语文本翻译回中文。保持原意，使用自然的中文表达。\n\n原文：{text}\n\n请只输出中文翻译结果，不要添加任何解释。"
+                prompt = f"请将以下文本翻译回中文。保持原意，使用自然的中文表达。\n\n原文：{text}\n\n请只输出中文翻译结果，不要添加任何解释。"
 
             print(f"[API调用] 正在发送翻译请求...")
             print(f"  模型: {model}")
