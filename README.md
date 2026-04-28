@@ -1,12 +1,11 @@
 # <h1>Clip-Translate-AI-for-vrchat</h1>    
 AI 翻译助手。    <br>
-把文本快速翻译到日语并译回中文对照。  <br>
-一个基于 AI 的自动翻译工具，通过监控剪切板实现中-日-中的双向翻译，支持多种翻译风格。      <br>
+把文本快速翻译到其他语言并译回中文对照。  <br>
+一个基于 AI 的自动翻译工具，通过监控剪切板实现双向翻译。      <br>
     
 <h2>✨ 功能特性   </h2> 
 自动检测：监控系统剪切板，自动检测文本变化并触发翻译    <br>
-双向翻译：中文→日语→中文的完整翻译流程    <br>
-多风格翻译：支持正式、日常、直译等多种翻译风格    <br>
+双向翻译：中文→其他语言→中文的完整翻译流程    <br>
 智能提示：翻译完成后播放提示音并自动复制结果到剪切板    <br>
 配置灵活：支持自定义 API 配置和提示词模板    <br>
 <br>
@@ -18,6 +17,7 @@ Windows 系统（使用 winsound 播放提示音）
 TEXT    <br>
 Clip-Translate-AI-for-vrchat-main/    <br>
 ├── VRChatBox Input Chinese to Japanese Translation.py        # 主程序文件    <br>
+├── VRChatBox Input Chinese to Korean Translation.py        # 主程序文件    <br>
 ├── config.json              # API 配置文件    <br>
 └── README.md               # 项目说明文档    <br>
 <br>
@@ -30,7 +30,7 @@ Clip-Translate-AI-for-vrchat-main/    <br>
 <h2>⚙️翻译结果格式   </h2> 
 翻译结果包含三部分：    <br>
     原始中文文本    <br>
-    日语翻译结果    <br>
+    翻译结果    <br>
     中文回译结果    <br>
 <br>
 <h2>⚙️ 配置说明     </h2> 
